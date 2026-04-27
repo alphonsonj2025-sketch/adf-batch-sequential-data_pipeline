@@ -60,8 +60,6 @@ To ensure the pipeline is scalable, flexible, and production-ready, a Lookup act
 
 Instead of hardcoding table names directly in the pipeline, the Lookup dynamically retrieves the list of tables to be processed. This design follows a metadata-driven architecture, which is a standard best practice in modern data engineering.
 
----
-
 🔍 Purpose of the Lookup Activity
 
 The Lookup activity is responsible for:
@@ -70,8 +68,6 @@ The Lookup activity is responsible for:
 - Acting as the control layer for ingestion
 - Passing dynamic inputs into the ForEach loop
 - Enabling batch processing across multiple tables
-
----
 
 🧠 How It Works
 
@@ -86,8 +82,6 @@ Each table is processed dynamically using:
 
 This allows a single pipeline to handle multiple tables without modification.
 
----
-
 💡 Why This Design Matters
 
 - Eliminates hardcoding of table names
@@ -95,23 +89,43 @@ This allows a single pipeline to handle multiple tables without modification.
 - Enables reusable pipeline architecture
 - Aligns with real-world enterprise data engineering patterns
 
----
-
 📊 Execution Result (Lookup Activity)
 
 The image below shows the successful execution of the Lookup activity, confirming that metadata was retrieved and passed to the pipeline for further processing.
 
 "Lookup Metadata Activity" (images/06_lookup_metadata_activity.png)
 
----
-
-🚀 Recruiter Takeaway
-
-This implementation demonstrates:
-
-- Strong understanding of metadata-driven pipelines
-- Ability to build scalable and maintainable ETL processes
-- Practical use of dynamic parameterization in Azure Data Factory
-- Awareness of industry-standard data engineering practices
-
 ![Lookup Metadata Activity](images/07_lookup_metadata_activity.png)
+
+07_lookup_metadata_activity.png
+
+ForEach Activity (Dynamic Iteration Engine)
+After retrieving table metadata using the Lookup activity, the pipeline leverages a ForEach activity to dynamically iterate through each table and execute the ingestion process.
+This enables the pipeline to process multiple tables in a scalable and automated manner, without requiring manual configuration for each dataset.
+🔍 Purpose of the ForEach Activity
+Iterates through the list of tables returned by the Lookup
+Executes ingestion logic for each table
+Enables batch or sequential processing
+Drives dynamic data movement across multiple datasets
+🧠 How It Works
+The ForEach activity receives input from the Lookup activity:
+Plain text
+Lookup Output → ForEach Loop → Copy Activity
+Each iteration processes one table using dynamic expressions:
+@item().table_name
+@item().table_schema
+⚙️ Execution Behavior
+The ForEach activity supports two execution modes:
+Sequential Processing → Batch count = 1
+Parallel (Batch) Processing → Batch count > 1
+This allows control over performance and execution strategy depending on workload requirements.
+📊 Pipeline Flow (Lookup → ForEach → Copy)
+The image below illustrates the complete flow of metadata-driven ingestion:
+�
+💡 Why This Design Matters
+Enables dynamic ingestion across multiple tables
+Eliminates repetitive pipeline design
+Improves scalability and maintainability
+Supports performance tuning via parallelism
+
+![Pipeline Lookup ForEach Flow](images/08_pipeline_lookup_foreach_flow.png)
