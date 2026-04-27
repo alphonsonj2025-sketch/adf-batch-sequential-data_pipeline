@@ -152,6 +152,8 @@ This approach prioritizes stability and control over speed.
 ![Sequential Ingestion Flow](images/10_sequential_execution.png)
 Sequential processing ensures reliable execution when order and dependency management are critical.
 
+
+
 ### 🔹 Execution Modes Summary
 
 | Mode        | Behavior              | Use Case              |
