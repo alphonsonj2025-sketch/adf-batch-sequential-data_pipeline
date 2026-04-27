@@ -35,4 +35,5 @@ Configuration:
 Result:
 Connection tested successfully ✅
 <br>
+![SQL Linked Service](images/03_sql_linked_service_success.png)
 ![SQL Linked Service](images/03_sql_linked_services_success.png)
