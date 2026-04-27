@@ -20,3 +20,19 @@ ForEach Loop
 Dynamic Copy Activity
    ↓
 SQL → Data Lake (per table)
+
+🔗 Linked Service – Azure SQL Database
+
+
+We created a secure connection between Azure Data Factory and Azure SQL Database.
+
+Configuration:
+
+- Server: vsqlserversolavise237.database.windows.net
+- Database: vsqlsolavise237
+- Authentication: SQL Authentication
+
+Result:
+Connection tested successfully ✅
+
+"SQL Linked Service" (images/03_sql_linked_service_success.png)
