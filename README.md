@@ -1,5 +1,14 @@
 # adf-batch-sequential-data-pipeline
-Azure Data Factory pipeline demonstrating batch ingestion and sequential data loading using dynamic table processing, ForEach activity, and controlled execution.
+This project demonstrates a production-style data ingestion pipeline built using Azure Data Factory (ADF).
+It showcases batch processing, sequential execution, parameterization, and performance optimization using Azure SQL Database as the source and Azure Data Lake as the target.
+🔹 Architecture Overview
+Azure SQL Database (SalesLT)
+        ↓
+Azure Data Factory (ADF)
+        ↓
+Azure Data Lake Storage (ADLS)
+        ↓
+Logging & Monitoring (SQL)
 ![Linked Service](images/01_linked_service.png)
 
 Batch & Sequential Processing Design
