@@ -37,3 +37,9 @@ Connection tested successfully ✅
 <br>
 ![SQL Linked Service](images/03_sql_linked_service_success.png)
 ![SQL Linked Service](images/03_sql_linked_services_success.png)
+
+## 🔹 SQL Dataset (Dynamic Configuration)
+
+This dataset is parameterized to dynamically read multiple tables from the SalesLT schema.
+
+![SQL Dataset Dynamic](images/06_ds_sql_dynamic.png)
