@@ -129,3 +129,14 @@ Improves scalability and maintainability
 Supports performance tuning via parallelism
 
 ![Pipeline Lookup ForEach Flow](images/08_pipeline_lookup_foreach_flow.png)
+
+🔹 Batch Ingestion (Parallel Loading)
+The pipeline implements batch ingestion using a ForEach activity configured for parallel execution.
+Multiple tables are processed simultaneously
+Improves performance and throughput
+Controlled using Batch count > 1
+Driven dynamically from Lookup metadata
+This design enables efficient loading of multiple source tables into the data lake without sequential delays.
+![Batch Ingestion Flow](images/08_pipeline_lookup_foreach_flow.png)
+
+##Batch processing significantly reduces total pipeline runtime by leveraging parallel execution.
