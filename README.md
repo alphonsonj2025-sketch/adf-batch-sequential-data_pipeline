@@ -140,3 +140,21 @@ This design enables efficient loading of multiple source tables into the data la
 ![Batch Ingestion Flow](images/08_pipeline_lookup_foreach_flow.png)
 
 ##Batch processing significantly reduces total pipeline runtime by leveraging parallel execution.
+
+🔹 Sequential Ingestion (Controlled Loading)
+The pipeline supports sequential ingestion using a ForEach activity configured for single-thread execution.
+Tables are processed one at a time
+Ensures controlled and ordered execution
+Used when handling dependencies or resource constraints
+Configured using Batch count = 1
+This approach prioritizes stability and control over speed.
+
+![Sequential Ingestion Flow](images/10_sequential_execution.png)
+Sequential processing ensures reliable execution when order and dependency management are critical.
+
+### 🔹 Execution Modes Summary
+
+| Mode        | Behavior              | Use Case              |
+|------------|----------------------|----------------------|
+| Sequential | One-by-one execution | Control & dependency |
+| Batch      | Parallel execution   | Performance & scale  |
