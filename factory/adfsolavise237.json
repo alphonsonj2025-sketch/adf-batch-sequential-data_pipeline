@@ -1,0 +1,15 @@
+{
+	"name": "adfsolavise237",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3ca2c2d4-d411-4f4c-9b48-59100bd85da6",
+		"tenantId": "74f94e54-ae6c-46d4-88e3-e71ffe1e4d4f"
+	}
+}
