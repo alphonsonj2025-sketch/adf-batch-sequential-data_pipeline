@@ -53,3 +53,65 @@ Connection tested successfully ✅
 The dataset is configured using parameters (`SourceSchema`, `SourceTable`) to enable reusable ingestion logic.
 
 ![SQL Dataset Dynamic](images/06_ds_sql_dynamic.png)
+
+🔹 Step 4: Metadata Lookup (Dynamic Table Ingestion Driver)
+
+To ensure the pipeline is scalable, flexible, and production-ready, a Lookup activity is used as the entry point of the ingestion process.
+
+Instead of hardcoding table names directly in the pipeline, the Lookup dynamically retrieves the list of tables to be processed. This design follows a metadata-driven architecture, which is a standard best practice in modern data engineering.
+
+---
+
+🔍 Purpose of the Lookup Activity
+
+The Lookup activity is responsible for:
+
+- Fetching table metadata (schema and table names)
+- Acting as the control layer for ingestion
+- Passing dynamic inputs into the ForEach loop
+- Enabling batch processing across multiple tables
+
+---
+
+🧠 How It Works
+
+The Lookup retrieves a collection of tables, which is then passed downstream:
+
+Lookup → ForEach → Copy Activity → Data Lake
+
+Each table is processed dynamically using:
+
+- "@item().table_name"
+- "@item().table_schema"
+
+This allows a single pipeline to handle multiple tables without modification.
+
+---
+
+💡 Why This Design Matters
+
+- Eliminates hardcoding of table names
+- Supports dynamic scaling as new tables are added
+- Enables reusable pipeline architecture
+- Aligns with real-world enterprise data engineering patterns
+
+---
+
+📊 Execution Result (Lookup Activity)
+
+The image below shows the successful execution of the Lookup activity, confirming that metadata was retrieved and passed to the pipeline for further processing.
+
+"Lookup Metadata Activity" (images/06_lookup_metadata_activity.png)
+
+---
+
+🚀 Recruiter Takeaway
+
+This implementation demonstrates:
+
+- Strong understanding of metadata-driven pipelines
+- Ability to build scalable and maintainable ETL processes
+- Practical use of dynamic parameterization in Azure Data Factory
+- Awareness of industry-standard data engineering practices
+
+![Lookup Metadata Activity](images/07_lookup_metadata_activity.png)
