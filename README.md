@@ -9,6 +9,7 @@ Azure Data Factory (ADF)
 Azure Data Lake Storage (ADLS)
         ↓
 Logging & Monitoring (SQL)
+
 ![Linked Service](images/01_linked_service.png)
 
 Batch & Sequential Processing Design
