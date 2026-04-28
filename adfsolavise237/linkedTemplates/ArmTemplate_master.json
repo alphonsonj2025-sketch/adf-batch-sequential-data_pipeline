@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfsolavise237"
+		},
+		"LS_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_blob'"
+		},
+		"LS_lake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_lake'"
+		},
+		"Ls_sql_salesdb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Ls_sql_salesdb'"
+		},
+		"LS_lake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://vlakesolavise237.dfs.core.windows.net/"
+		},
+		"Ls_sql_salesdb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "vsqlserversolavise237.database.windows.net"
+		},
+		"Ls_sql_salesdb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "vsqlsolavise237"
+		},
+		"Ls_sql_salesdb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sqlusersolavise237"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfsolavise237_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_blob_connectionString": {
+						"value": "[parameters('LS_blob_connectionString')]"
+					},
+					"LS_lake_accountKey": {
+						"value": "[parameters('LS_lake_accountKey')]"
+					},
+					"Ls_sql_salesdb_password": {
+						"value": "[parameters('Ls_sql_salesdb_password')]"
+					},
+					"LS_lake_properties_typeProperties_url": {
+						"value": "[parameters('LS_lake_properties_typeProperties_url')]"
+					},
+					"Ls_sql_salesdb_properties_typeProperties_server": {
+						"value": "[parameters('Ls_sql_salesdb_properties_typeProperties_server')]"
+					},
+					"Ls_sql_salesdb_properties_typeProperties_database": {
+						"value": "[parameters('Ls_sql_salesdb_properties_typeProperties_database')]"
+					},
+					"Ls_sql_salesdb_properties_typeProperties_userName": {
+						"value": "[parameters('Ls_sql_salesdb_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
